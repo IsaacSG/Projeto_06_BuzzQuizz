@@ -58,7 +58,7 @@ main > p {
     justify-content: center;
     background-image: linear-gradient(rgba(255,0,0,0), rgba(255,0,0,1));
 }
-.quizz > p {
+.quizz > .titulo {
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -70,6 +70,9 @@ main > p {
     position:absolute;
     margin-bottom: 10px;
     background-image: linear-gradient(rgba(255,0,0,0), rgba(0,0,0,1));
+}
+.quizz > .id {
+    display: none;
 }
 .quizz > img {
     position: relative;

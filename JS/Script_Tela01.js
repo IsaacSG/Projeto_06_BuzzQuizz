@@ -9,19 +9,12 @@ function renderizarQuizzes(response){
 
     for(i = 0; i < quizz.length; i++){
         novoQuizz = document.querySelector(".todos-os-quizzes");
-        novoQuizz.innerHTML += `<div class = "quizz" onclick="responderQuizz()"> <p>${quizz[i].title}</p> <img src="${quizz[i].image}"> </div>`
+        novoQuizz.innerHTML += `<li class = "quizz" onclick="responderQuizz(this)"> <p class = "titulo">${quizz[i].title}</p> <img src="${quizz[i].image}> <p class = "id">${quizz[i].id}</p> </li>`
 
     }
 }
 
-function responderQuizz(){
-    const pagina01 = document.querySelector(".pagina01");
-    pagina01.classList.add("oculto");
-    const pagina02 = document.querySelector(".pagina02");
-    pagina02.classList.remove("oculto");
-}
-function criarQuizz()
-{
+function criarQuizz() {
     const pagina01 = document.querySelector(".pagina01");
     pagina01.classList.add("oculto");
     const paginacriarQuizz = document.querySelector(".paginaCriarquizz");
