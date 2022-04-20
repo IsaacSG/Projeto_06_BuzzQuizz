@@ -21,12 +21,27 @@ header > p {
 
 main {
     margin-top: 69px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 main > p {
     font-size: 20px;
     font-weight: 700, bold;
     color: #000000;
     margin-bottom: 12px;
+}
+.pagina01> button
+{
+    width: 151px;
+    height: 40px;
+    left: 645px;
+    top: 254px;
+    
+    background: #FAFAFA;
+    border: 1px dashed #EC362D;
+    box-sizing: border-box;
+    border-radius: 50px;
 }
 .todos-os-quizzes {
     background-color: #FFFFFF;
@@ -59,7 +74,7 @@ main > p {
 .quizz > img {
     position: relative;
     width: 340px;
-    height: 181px;
+    height: 181px;   
 }
 
 .oculto {

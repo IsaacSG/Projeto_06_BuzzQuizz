@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/Estilos_Tela01.css">
+    <link rel="stylesheet" href="CSS/Estilos_TelacriarQuizz.css">
 
     <title>Projeto_06_BuzzQuizz</title>
 </head>
@@ -19,13 +20,27 @@
     
     <main>
         <div class="pagina01">
+            <button onclick="criarQuizz()">
+                adicionar Quizz
+            </button>
         <p>Todos os Quizzes</p>
-            <div class="todos-os-quizzes">
-
+            <div class="todos-os-quizzes">            
         </div>
     </div>
     <div class="pagina02 oculto">
         <p>Pagina2</p>
+    </div>
+    <div class="paginaCriarquizz oculto">
+        <div class="info-basica hidden">
+            <h3>Comece pelo começo</h3>
+            <ul class="info-basica-inputs">
+                <li><input type="text" placeholder="Título do seu quizz"></li>
+                <li><input type="text" placeholder="URL da imagem do seu quizz"></li>
+                <li><input type="text" placeholder="Quantidade de perguntas do quizz"></li>
+                <li><input type="text" placeholder="Quantidade de níveis do quizz"></li>
+            </ul>
+            <button type="button" class="botao-prosseguir">Prosseguir pra criar perguntas</button>
+        </div>        
     </div>
     </main>
 

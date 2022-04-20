@@ -20,6 +20,12 @@ function responderQuizz(){
     const pagina02 = document.querySelector(".pagina02");
     pagina02.classList.remove("oculto");
 }
-
+function criarQuizz()
+{
+    const pagina01 = document.querySelector(".pagina01");
+    pagina01.classList.add("oculto");
+    const paginacriarQuizz = document.querySelector(".paginaCriarquizz");
+    paginacriarQuizz.classList.remove("oculto");
+}
 
 todosOsQuizzes();
