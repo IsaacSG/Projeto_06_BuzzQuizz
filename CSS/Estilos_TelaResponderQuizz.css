@@ -1,0 +1,21 @@
+.perguntas {
+    width: 676px;
+    height: 759px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.respostas {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.respostas > img {
+    width: 330px;
+    height: 175px;
+}
+.respostas > p {
+    color: blue;
+}
+.perguntas > p {
+    color: crimson;
+}
