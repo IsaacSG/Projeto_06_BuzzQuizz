@@ -4,8 +4,7 @@ function responderQuizz(elemento){
     pagina01.classList.add("oculto");
     const pagina02 = document.querySelector(".pagina02");
     pagina02.classList.remove("oculto");
-    id = document.querySelector(".quizz > id")
-    console.log(id);
+    id = elemento.id;
     renderizarQuizzSelecionado();
 }
 function renderizarQuizzSelecionado () {
@@ -15,7 +14,6 @@ function renderizarQuizzSelecionado () {
 function responderQuizzSelecionado (response) {
     let quizz = response.data;
     let quizzSelecionado;
-    console.log(quizz);
     for(i = 0; i < quizz.length; i++){
         if (quizz[i].id == id) {
         quizzSelecionado = document.querySelector(".perguntasQuizz");

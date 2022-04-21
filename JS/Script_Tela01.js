@@ -19,7 +19,7 @@ function renderizarQuizzes(response){
 
     for(i = 0; i < quizz.length; i++){
         novoQuizz = document.querySelector(".todos-os-quizzes");
-        novoQuizz.innerHTML += `<li class = "quizz" onclick="responderQuizz(this)"> <p class = "titulo">${quizz[i].title}</p> <img src="${quizz[i].image}> <p class = "id">${quizz[i].id}</p> </li>`
+        novoQuizz.innerHTML += `<li class = "quizz" id="${quizz[i].id}" onclick="responderQuizz(this)"> <img src="${quizz[i].image}"/> <p class = "titulo">${quizz[i].title}</p> </li>`
 
     }
 }
