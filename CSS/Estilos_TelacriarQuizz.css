@@ -89,3 +89,23 @@
 .capsula-inputs h3{
     margin-bottom: 12px;
 }
+textarea{
+    font-family: 'Roboto', sans-serif;
+    width: 90vw;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    margin-bottom: 9px;
+    padding-top: 10px;    
+    padding-left: 14px;    
+    font-size: 19px;
+    line-height: 22px;
+}
+
+textarea::placeholder{
+    font-style: italic;
+    font-weight: normal;
+    color: #BABABA;
+
+}
+             

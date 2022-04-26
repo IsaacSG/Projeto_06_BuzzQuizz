@@ -199,6 +199,106 @@ function validarPerguntas(){
     }
     else{
         quizz.questions = perguntas;
+        telaCriarNiveis();
+    }
+}
+ 
+function telaCriarNiveis(){
+    const infoNiveis = document.querySelector(".info-niveis");
+
+    infoNiveis.innerHTML = `<h3>Agora, decida os níveis!</h3>`;
+    for(let i = 1; i <= quantidadeDeNiveis; i++){
+        infoNiveis.innerHTML += `
+        <div class="layout-criacao-conteudo">
+            <div class="capsula-inputs">
+                <h3>Nível ${i}</h3>
+                <ul class="layout-inputs">
+                    <li><input type="text" placeholder="Título do nível" class="url-img-titulo${i}"></li>
+                    <li><input type="text" placeholder="% de acerto mínima" class="nivel-minimo${i}"></li>
+                    <li><input type="text" placeholder="URL da imagem do nível" class="url-nivel${i}"></li>
+                    <li><textarea name="Descricao" id="descricao" cols="30" rows="10" placeholder="Descrição do nível" class="descricao-nivel${i}"></textarea></li>                  
+                </ul>
+            </div> 
+        </div>      
+        `
+    }
+
+    infoNiveis.innerHTML += `<button type="button" class="botao-criar" onclick="guardarNiveis()">Finalizar Quizz</button>`;
+
+
+    document.querySelector(".info-perguntas").classList.add("oculto");
+    infoNiveis.classList.remove("oculto");
+    infoNiveis.scrollIntoView();
+}
+function getLevelTitleValue(levelN){
+    return document.querySelector(".url-img-titulo"+levelN).value;
+}
+function getLevelImgUrl(levelN){
+    return document.querySelector(".url-nivel"+levelN).value;
+}
+function getLevelMinValue(levelN){
+    return parseInt(document.querySelector(".nivel-minimo" + levelN).value);
+}
+function getLevelDescription(levelN){
+    return document.querySelector(".descricao-nivel" + levelN).value;
+}
+
+
+function guardarNiveis(){
+     pegarTitulodoNivel =num =>{return document.querySelector(".url-img-titulo"+num).value;}
+     pegarUrlImgTitulo = num =>{return document.querySelector(".url-nivel"+num).value;}
+     pegarDescricao = num =>{return document.querySelector(".descricao-nivel"+num).value;}
+     pegarNivelMinino = num =>{return document.querySelector(".nivel-minimo"+num).value;}
+    for(let i = 1; i <= quantidadeDeNiveis; i++){
+        const obj = {
+            title: pegarTitulodoNivel(i),
+            image: pegarUrlImgTitulo(i),
+            text: pegarDescricao(i),
+            minValue: pegarNivelMinino(i)
+        }
+        niveis.push(obj);
+    }
+
+    console.log(niveis);
+    validarNiveis();
+}
+
+function validarNiveis(){
+    eNivelValido = true;
+    nivelMinimoValido = false;
+
+    niveis.forEach((elemento) => {
+        if(elemento.title.length < 10){
+            eNivelValido = false;
+            console.log("Invalid level title");
+        }
+        if(elemento.minValue < 0 || elemento.minValue > 100){
+            eNivelValido = false;
+            console.log("valor mínimo inválido");
+        }
+        if(elemento.minValue === 0){
+            nivelMinimoValido = true;
+            console.log("valor mínimo = 0");
+        }
+        if(!validarUrl(elemento.image)){
+            eNivelValido = false;
+            console.log("url Inválida");
+        }
+        if(elemento.text.length<30){
+            eNivelValido = false;
+            console.log("Descrição Inválida");
+        }        
+    });
+
+    if(!eNivelValido || nivelMinimoValido)
+    {
+        alert("Preencha os dados corretamente");
+        console.log("Níveis inválidos");
+        niveis = [];
+    }
+    else{
+        quizz.levels = niveis;
         console.log("foi");
+        console.log(quizz);
     }
 }

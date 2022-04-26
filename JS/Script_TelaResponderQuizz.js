@@ -18,12 +18,10 @@ function responderQuizzSelecionado (response) {
     let respostasQuizz;
     for(i = 0; i < quizz.length; i++){
         if (quizz[i].id == id) {
-            quizzSelecionado = document.querySelector(".imagemTopo");
-            quizzSelecionado.innerHTML += `<div class ="topoImagem"> <p>${quizz[i].title}</p> <img src = "${quizz[i].image}"/></div>`
-            let questoes = quizz[0].questions;
             quizzSelecionado = document.querySelector(".perguntasQuizz");
+            let questoes = quizz[0].questions;
             for(o = 0; o < questoes.length; o++){
-                quizzSelecionado.innerHTML += `<div class ="perguntas${o}"><p class = "tituloPergunta">${quizz[i].questions[o].title} </p> </div>`
+                quizzSelecionado.innerHTML += `<div class ="perguntas${o}"><p class = "titulo">${quizz[i].questions[o].title} </p> </div>`
                 respostas = quizz[i].questions[o].answers;
                 respostas.sort(misturar);
                 for(p = 0; p < respostas.length; p++){
@@ -33,7 +31,7 @@ function responderQuizzSelecionado (response) {
                 }
             }
         }
-    }
+    } 
 }
 function misturar(){
     return Math.random() - 0.5;
