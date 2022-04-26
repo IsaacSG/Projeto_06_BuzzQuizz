@@ -90,10 +90,12 @@ function telaCriarPerguntas(){
 
     const perguntasHTML = document.querySelectorAll(".info-perguntas .layout-criacao-conteudo");
     perguntasHTML.forEach((elemento, index) => {
-        for(let i = 0; i<3; i++){
+        
             elemento.innerHTML += `
             <div class="capsula-inputs">
-                <h3>Respostas Incorretas</h3> 
+                <h3>Respostas Incorretas</h3>` 
+                for(let i = 0; i<3; i++){
+                    elemento.innerHTML+=`
                 <ul class="layout-inputs">
                     <li><input type="text" placeholder="Resposta incorreta ${i+1} " class="resposta-incorreta${index+1}"></li>
                     <li><input type="text" placeholder="URL da imagem" class="url-img-resposta${index+1}"></li>                    
@@ -307,12 +309,45 @@ function finalizaCriacao(response){
         <span class="img-texto">${quizz.title}</span>
         <span class="img-degrade"></span>
     </div>            
-    <button type="button" class="botao-criar" onclick="accessQuizz()">Acessar Quizz</button>
-    <span class="back-home" onclick="backHome()">Voltar pra home</span>
+    <button type="button" class="botao-criar" onclick="abrirQuizzCriado()">Acessar Quizz</button>
+    <span class="voltar-home" onclick="voltarHome()">Voltar pra home</span>
     `
 
-    document.querySelector(".levels-info").classList.add("oculto");
+    document.querySelector(".info-niveis").classList.add("oculto");
     telaSucesso.classList.remove("oculto");
     telaSucesso.scrollIntoView();
     console.log(response.data);
+    localStoreQuizz(response);
+}
+function localStoreQuizz(response){
+    const quizzId = response.data.id;
+    let Ids = [];
+
+    if(localStorage.getItem("QuizzIDs") != null){        
+        const idsAPIDesserializado = JSON.parse(localStorage.getItem("QuizzIDs"));
+        if(!Array.isArray(idsAPIDesserializado)){
+            Ids.push(idsAPIDesserializado);
+        }
+        else{
+            Ids=idsAPIDesserializado;
+        }
+    }    
+
+    Ids.push(quizzId);
+    const idSerializado = JSON.stringify(Ids); 
+    localStorage.setItem("QuizzIDs", idSerializado);
+  
+}
+function abrirQuizzCriado(idQuizz)
+{
+    const pagina01 = document.querySelector(".pagina01");
+    pagina01.classList.add("oculto");
+    const pagina02 = document.querySelector(".pagina02");
+    pagina02.classList.remove("oculto");
+    id = idQuizz;
+    renderizarQuizzSelecionado();
+}
+function voltarHome()
+{
+    
 }
