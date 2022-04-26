@@ -7,7 +7,7 @@ let quizz = {
     levels: niveis
 }
 function criarQuizz() {
-    const pagina01 = document.querySelector(".pagina01");
+    const pagina01 = document.querySelector(".conteudo");
     pagina01.classList.add("oculto");
     const paginacriarQuizz = document.querySelector(".paginaCriarquizz");
     paginacriarQuizz.classList.remove("oculto");
@@ -64,6 +64,8 @@ function validarInfoBasicas(){
     }
 }
 function telaCriarPerguntas(){
+    const paginaInfoBasica = document.querySelector(".criarInfo");
+    paginaInfoBasica.classList.add("oculto");
     const telaPerguntas = document.querySelector(".info-perguntas");
 
     telaPerguntas.innerHTML = "<h3>Crie suas perguntas</h3>";
@@ -107,7 +109,7 @@ function telaCriarPerguntas(){
     });
 
     telaPerguntas.innerHTML += `<button type="button" class="botao-criar" onclick="guardarPerguntas()">Finalizar Quizz</button>`;
-    document.querySelector(".info-basica").style.display = "none";
+   // document.querySelector(".info-basica").style.display = "none";
     telaPerguntas.classList.remove("oculto");
 }
 function pegarTitulo(num)
@@ -228,7 +230,7 @@ function telaCriarNiveis(){
     infoNiveis.innerHTML += `<button type="button" class="botao-criar" onclick="guardarNiveis()">Finalizar Quizz</button>`;
 
 
-    document.querySelector(".info-perguntas.layout-criacao").classList.add("oculto");
+    document.querySelector(".criarPergunta").classList.add("oculto");
     infoNiveis.classList.remove("oculto");
     infoNiveis.scrollIntoView();
 }
