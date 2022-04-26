@@ -230,19 +230,6 @@ function telaCriarNiveis(){
     infoNiveis.classList.remove("oculto");
     infoNiveis.scrollIntoView();
 }
-function getLevelTitleValue(levelN){
-    return document.querySelector(".url-img-titulo"+levelN).value;
-}
-function getLevelImgUrl(levelN){
-    return document.querySelector(".url-nivel"+levelN).value;
-}
-function getLevelMinValue(levelN){
-    return parseInt(document.querySelector(".nivel-minimo" + levelN).value);
-}
-function getLevelDescription(levelN){
-    return document.querySelector(".descricao-nivel" + levelN).value;
-}
-
 
 function guardarNiveis(){
      pegarTitulodoNivel =num =>{return document.querySelector(".url-img-titulo"+num).value;}
