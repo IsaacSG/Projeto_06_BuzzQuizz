@@ -14,8 +14,8 @@
 }
 .topoImagem > p {
     display: flex;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 130px;
+    padding-bottom: 100px;
     align-items: center;
     justify-content: center;
     height: 69px;
@@ -25,27 +25,28 @@
     z-index: 1;
     position:absolute;
     background: rgba(0,0,0,0.6);
+    word-wrap: break-word;
 }
 .perguntasQuizz {
     width: 759px;
 }
-.perguntasQuizz > div {
+.perguntasQuizz > ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.perguntasQuizz > div > div {
+.perguntasQuizz > ul > li {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.perguntasQuizz > div > div > img {
+.perguntasQuizz > ul > li > img {
     width: 330px;
     height: 175px;
 }
-.perguntasQuizz > div > div > p {
+.perguntasQuizz > ul > li > p {
     width: 330px;
     color: #000000;
     margin-bottom: 18px;
@@ -59,4 +60,9 @@
     height: 137px;
     color: #FFFFFF;
     margin-bottom: 40px;
+}
+.opacidade {
+    width: 759px;
+    background: rgba(0,0,0,0.8);
+    z-index: 2;
 }
