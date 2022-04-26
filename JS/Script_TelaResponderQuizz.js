@@ -2,6 +2,8 @@ let id;
 let respostas = [];
 let contador = 0;
 let quantidadePerguntas = 0;
+let questoesRespondidas = 0;
+
 function carregarQuizz(elemento){
     const pagina01 = document.querySelector(".pagina01");
     pagina01.classList.add("oculto");
@@ -60,6 +62,7 @@ function responderQuizz (elemento){
         elementoPai = document.querySelector(`.${elemento.parentNode.className} > .${alternativa} > img`);
         elementoPai.style.opacity = ".3"
         contador = contador + 1;
+        questoesRespondidas = questoesRespondidas +1;
 
     }
     else {
@@ -67,8 +70,12 @@ function responderQuizz (elemento){
         elementoPai.style.opacity = ".3"
         editarcss = document.querySelector(`.${alternativa} > p`);
         editarcss.style.color = vermelho;
+        questoesRespondidas = questoesRespondidas +1;
     }
-calcularNivel(contador);
+    if(questoesRespondidas == quantidadePerguntas){
+        calcularNivel(contador);
+    }
+
 }
 function calcularNivel(contador){
     contador = contador/quantidadePerguntas;
