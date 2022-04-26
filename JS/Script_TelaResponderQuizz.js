@@ -21,26 +21,18 @@ function carregarQuizzSelecionado (response) {
     let imagemFundo;
     for(i = 0; i < quizz.length; i++){
         if (quizz[i].id == id) {
-<<<<<<< HEAD
-=======
             quizzSelecionado = document.querySelector(".imagemTopo");
             editarcss = document.querySelector(".imagemTopo");
             imagemFundo = `${quizz[i].image}`
             editarcss.style.backgroundImage = `url("${imagemFundo}")`;
             quizzSelecionado.innerHTML += `<div class ="topoImagem"> <p>${quizz[i].title}</p></div>`;
             let questoes = quizz[0].questions;
->>>>>>> a4ff69e10fcd69419d51f5abb0e9ef546c3e9a5c
             quizzSelecionado = document.querySelector(".perguntasQuizz");
-            let questoes = quizz[0].questions;
             for(o = 0; o < questoes.length; o++){
-<<<<<<< HEAD
-                quizzSelecionado.innerHTML += `<div class ="perguntas${o}"><p class = "titulo">${quizz[i].questions[o].title} </p> </div>`
-=======
                 quizzSelecionado.innerHTML += `<div class ="perguntas${o}"><p class = "tituloPergunta">${quizz[i].questions[o].title} </p> </div>`;
                 cor = `${quizz[i].questions[o].color}`;
                 editarcss = document.querySelector(`.perguntas${o} > .tituloPergunta`)
                 editarcss.style.backgroundColor = cor;
->>>>>>> a4ff69e10fcd69419d51f5abb0e9ef546c3e9a5c
                 respostas = quizz[i].questions[o].answers;
                 respostas.sort(misturar);
                 for(p = 0; p < respostas.length; p++){
@@ -49,7 +41,7 @@ function carregarQuizzSelecionado (response) {
                 }
             }
         }
-    } 
+    }
 }
 
 /*function responderQuizz (elemento){

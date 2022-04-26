@@ -226,7 +226,7 @@ function telaCriarNiveis(){
     infoNiveis.innerHTML += `<button type="button" class="botao-criar" onclick="guardarNiveis()">Finalizar Quizz</button>`;
 
 
-    document.querySelector(".info-perguntas").classList.add("oculto");
+    document.querySelector(".info-perguntas.layout-criacao").classList.add("oculto");
     infoNiveis.classList.remove("oculto");
     infoNiveis.scrollIntoView();
 }
@@ -285,7 +285,34 @@ function validarNiveis(){
     }
     else{
         quizz.levels = niveis;
-        console.log("foi");
-        console.log(quizz);
+        enviarParaAPI()
     }
+
+}
+function enviarParaAPI()
+{
+    const requisicao = axios.post("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes", quizz);
+    requisicao.then(finalizaCriacao);
+    requisicao.catch( (error) => {  
+        console.log("Falha em enviar quizz pro servidor\n" + error.data);
+    })
+}
+function finalizaCriacao(response){
+    const telaSucesso = document.querySelector(".tela-successo");
+
+    telaSucesso.innerHTML = `
+    <h3>Seu quizz está pronto!</h3>
+    <div class="img-criacao">
+        <img src="${quizz.image}" alt="Quizz Image">
+        <span class="img-texto">${quizz.title}</span>
+        <span class="img-degrade"></span>
+    </div>            
+    <button type="button" class="botao-criar" onclick="accessQuizz()">Acessar Quizz</button>
+    <span class="back-home" onclick="backHome()">Voltar pra home</span>
+    `
+
+    document.querySelector(".levels-info").classList.add("oculto");
+    telaSucesso.classList.remove("oculto");
+    telaSucesso.scrollIntoView();
+    console.log(response.data);
 }
