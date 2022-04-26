@@ -349,5 +349,5 @@ function abrirQuizzCriado(idQuizz)
 }
 function voltarHome()
 {
-    
+    document.location.reload(true);
 }
