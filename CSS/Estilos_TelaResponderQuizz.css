@@ -1,25 +1,30 @@
-.imagemTopo {
-    width: 100%;
-    background-image: "";
+.pagina02 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.topoImagem > img {
-    width: 100%;
+
+.imagemTopo {
+    width: 1440px;
     height: 227px;
     position: relative;
+    background-repeat: repeat;
+    
 }
 .topoImagem > p {
-    margin-top: 80px;
     display: flex;
+    padding-top: 80px;
     padding-bottom: 80px;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     height: 69px;
-    width: 1050px;
+    width: 1440px;
     font-size: 40px;
     color:#FFFFFF;
     z-index: 1;
     position:absolute;
-    background-image: linear-gradient(rgba(255,0,0,0), rgba(0,0,0,1));
+    background: rgba(0,0,0,0.6);
 }
 .perguntasQuizz {
     width: 759px;
@@ -30,19 +35,21 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.respostas {
+.perguntasQuizz > div > div {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.respostas > img {
+.perguntasQuizz > div > div > img {
     width: 330px;
     height: 175px;
 }
-.respostas > p {
+.perguntasQuizz > div > div > p {
+    width: 330px;
     color: #000000;
     margin-bottom: 18px;
+    word-wrap: break-word;
 }
 .tituloPergunta {
     display: flex;
@@ -50,7 +57,6 @@
     justify-content: center;
     width: 710px;
     height: 137px;
-    background-color: aqua;
     color: #FFFFFF;
     margin-bottom: 40px;
 }
