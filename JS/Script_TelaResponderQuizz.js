@@ -1,6 +1,7 @@
 let id;
 let respostas = [];
 let contador = 0;
+let quantidadePerguntas = 0;
 function carregarQuizz(elemento){
     const pagina01 = document.querySelector(".pagina01");
     pagina01.classList.add("oculto");
@@ -30,6 +31,7 @@ function carregarQuizzSelecionado (response) {
             let questoes = quizz[0].questions;
             quizzSelecionado = document.querySelector(".perguntasQuizz");
             for(o = 0; o < questoes.length; o++){
+                quantidadePerguntas = quizz[i].questions.length;
                 quizzSelecionado.innerHTML += `<ul class ="perguntas${o}"><p class = "tituloPergunta">${quizz[i].questions[o].title} </p> </ul>`;
                 cor = `${quizz[i].questions[o].color}`;
                 editarcss = document.querySelector(`.perguntas${o} > .tituloPergunta`)
@@ -52,22 +54,28 @@ function responderQuizz (elemento){
     let verde = "rgb(23, 255, 0)";
     let vermelho = "rgb(255,0,0)";
     let elementoPai;
-
     if(id == "true"){
         editarcss = document.querySelector(`.${alternativa} > p`);
         editarcss.style.color = verde;
-        elementoPai = document.querySelector(`.${elemento.parentNode.className}`);
-        elementoPai.classList.add("opacidade");
+        elementoPai = document.querySelector(`.${elemento.parentNode.className} > .${alternativa} > img`);
+        elementoPai.style.opacity = ".3"
         contador = contador + 1;
+
     }
     else {
-        elementoPai = document.querySelector(`.${elemento.parentNode.className}`);
-        elementoPai.classList.add("opacidade");
+        elementoPai = document.querySelector(`.${elemento.parentNode.className} > .${alternativa} > img`);
+        elementoPai.style.opacity = ".3"
         editarcss = document.querySelector(`.${alternativa} > p`);
         editarcss.style.color = vermelho;
     }
+calcularNivel(contador);
 }
-
+function calcularNivel(contador){
+    contador = contador/quantidadePerguntas;
+    contador = contador*100;
+    contador = Math.ceil(contador);
+    console.log(contador);
+}
 function misturar(){
     return Math.random() - 0.5;
 }
